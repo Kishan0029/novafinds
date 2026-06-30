@@ -33,7 +33,7 @@ const reviews = [
 
 export default function Testimonials() {
   return (
-    <section className="py-24 bg-light-background">
+    <section className="py-16 md:py-24 bg-light-background">
       <div className="container mx-auto px-4 md:px-6">
         
         <div className="flex flex-col items-center text-center mb-16">

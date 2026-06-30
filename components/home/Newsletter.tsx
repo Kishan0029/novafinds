@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 
 export default function Newsletter() {
   return (
-    <section className="py-24 bg-background relative overflow-hidden">
+    <section className="py-16 md:py-24 bg-background relative overflow-hidden">
       {/* Decorative Elements */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-3xl pointer-events-none" />
       

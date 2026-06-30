@@ -27,6 +27,7 @@ export default function Navbar() {
   const cartCount = getCartCount();
   const [mounted, setMounted] = useState(false);
   const [user, setUser] = useState<any>(null);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const router = useRouter();
   const supabase = createClient();
 
@@ -68,7 +69,7 @@ export default function Navbar() {
       <div className="container mx-auto px-4 md:px-6 h-20 flex items-center justify-between">
         {/* Mobile Menu & Logo */}
         <div className="flex items-center gap-4 lg:hidden">
-          <Sheet>
+          <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
             <SheetTrigger render={<Button variant="ghost" size="icon" className="shrink-0" />}>
               <Menu className="h-6 w-6" />
               <span className="sr-only">Toggle navigation menu</span>
@@ -79,15 +80,44 @@ export default function Navbar() {
                   Nova<span className="text-foreground">Finds</span>.
                 </Link>
                 <div className="flex flex-col gap-4 mt-6">
+                  <form 
+                    onSubmit={(e) => {
+                      e.preventDefault();
+                      if (searchQuery.trim()) {
+                        router.push(`/shop?q=${encodeURIComponent(searchQuery.trim())}`);
+                        setIsMobileMenuOpen(false);
+                      }
+                    }} 
+                    className="relative w-full mb-2"
+                  >
+                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                    <Input
+                      type="search"
+                      placeholder="Search products..."
+                      className="pl-9 pr-4 rounded-xl bg-muted border-none h-12"
+                      value={searchQuery}
+                      onChange={(e) => setSearchQuery(e.target.value)}
+                    />
+                  </form>
                   {navLinks.map((link) => (
                     <Link
                       key={link.name}
                       href={link.href}
-                      className="text-foreground/80 hover:text-primary transition-colors"
+                      className="text-foreground/80 hover:text-primary transition-colors py-2 font-medium"
+                      onClick={() => setIsMobileMenuOpen(false)}
                     >
                       {link.name}
                     </Link>
                   ))}
+                  <div className="h-px bg-border my-2" />
+                  <Link
+                    href={user ? "/dashboard" : "/login"}
+                    className="text-foreground/80 hover:text-primary transition-colors py-2 flex items-center gap-2 font-medium"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    <User className="h-5 w-5" />
+                    {user ? "My Account" : "Sign In"}
+                  </Link>
                 </div>
               </nav>
             </SheetContent>

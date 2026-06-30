@@ -8,7 +8,7 @@ import Link from "next/link";
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-background pt-20 pb-24 md:pt-32 md:pb-32">
+    <section className="relative overflow-hidden bg-background pt-12 pb-16 md:pt-32 md:pb-32">
       {/* Abstract Background Elements */}
       <div className="absolute top-0 right-0 -translate-y-12 translate-x-1/3 w-[800px] h-[800px] bg-primary/5 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 left-0 translate-y-1/3 -translate-x-1/3 w-[600px] h-[600px] bg-secondary/5 rounded-full blur-3xl pointer-events-none" />
@@ -27,7 +27,7 @@ export default function Hero() {
               New Arrivals 2026 Collection
             </div>
             
-            <h1 className="font-heading text-5xl md:text-7xl font-bold tracking-tight text-foreground leading-[1.1]">
+            <h1 className="font-heading text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight text-foreground leading-[1.1]">
               Discover <br /> Products That <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
                 Make Life Better
@@ -39,11 +39,11 @@ export default function Hero() {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-              <Button size="lg" className="rounded-full h-14 px-8 text-base font-semibold group" render={<Link href="/shop" />} nativeButton={false}>
+              <Button size="lg" className="rounded-full h-14 px-8 text-base font-semibold group w-full sm:w-auto" render={<Link href="/shop" />} nativeButton={false}>
                 Shop Collection
                 <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </Button>
-              <Button variant="outline" size="lg" className="rounded-full h-14 px-8 text-base font-semibold" render={<Link href="/categories" />} nativeButton={false}>
+              <Button variant="outline" size="lg" className="rounded-full h-14 px-8 text-base font-semibold w-full sm:w-auto" render={<Link href="/categories" />} nativeButton={false}>
                 Explore Categories
               </Button>
             </div>
