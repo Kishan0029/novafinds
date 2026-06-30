@@ -74,7 +74,7 @@ export default function Navbar() {
               <Menu className="h-6 w-6" />
               <span className="sr-only">Toggle navigation menu</span>
             </SheetTrigger>
-            <SheetContent side="left" className="w-[300px] sm:w-[400px]">
+            <SheetContent side="left" className="w-[300px] sm:w-[400px] p-6">
               <nav className="flex flex-col gap-6 text-lg font-medium mt-8">
                 <Link href="/" className="flex items-center gap-2 font-heading font-bold text-2xl tracking-tight text-primary">
                   Nova<span className="text-foreground">Finds</span>.

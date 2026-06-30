@@ -83,7 +83,7 @@ export default function Categories() {
         >
           {categories.map((category) => (
             <motion.div key={category.id} variants={itemVariants}>
-              <Link href={`/categories/${category.id}`} className="group block relative rounded-2xl overflow-hidden aspect-[3/4]">
+              <Link href={`/shop?category=${category.id}`} className="group block relative rounded-2xl overflow-hidden aspect-[3/4]">
                 <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-500 z-10" />
                 <Image
                   src={category.image}

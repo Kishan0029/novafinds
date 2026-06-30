@@ -146,7 +146,7 @@ export default function ProductDetailsClient({ product, relatedProducts }: Produ
 
               {/* Actions */}
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
-                <Button size="lg" className="flex-1 h-14 rounded-full text-lg font-semibold shadow-md" onClick={handleAddToCart}>
+                <Button size="lg" className="hidden sm:flex flex-1 h-14 rounded-full text-lg font-semibold shadow-md" onClick={handleAddToCart}>
                   Add to Cart — ₹{(product.price * quantity).toLocaleString("en-IN")}
                 </Button>
                 <div className="flex gap-4">
