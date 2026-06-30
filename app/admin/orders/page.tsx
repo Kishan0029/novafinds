@@ -130,7 +130,7 @@ export default function AdminOrdersPage() {
                   </TableCell>
                   <TableCell className="text-right">
                     <DropdownMenu>
-                      <DropdownMenuTrigger asChild>
+                      <DropdownMenuTrigger>
                         <Button variant="outline" size="sm" disabled={updatingId === order.id}>
                           {updatingId === order.id ? <Loader2 className="h-3 w-3 animate-spin mr-1" /> : null}
                           Update Status
