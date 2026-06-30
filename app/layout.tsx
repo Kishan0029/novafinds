@@ -3,6 +3,7 @@ import { Inter, Poppins } from "next/font/google";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import CartDrawer from "@/components/layout/CartDrawer";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const inter = Inter({
@@ -38,6 +39,7 @@ export default function RootLayout({
         </main>
         <Footer />
         <CartDrawer />
+        <Analytics />
       </body>
     </html>
   );
