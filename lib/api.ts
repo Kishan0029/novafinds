@@ -13,7 +13,7 @@ export async function getProducts(): Promise<Product[]> {
   }
 
   // Transform snake_case from DB to camelCase for the frontend
-  return data.map((item) => ({
+  return (data || []).map((item: any) => ({
     id: item.id,
     name: item.name,
     description: item.description,
@@ -43,21 +43,22 @@ export async function getProductById(id: string): Promise<Product | null> {
     return null;
   }
 
+  const productData = data as any;
   return {
-    id: data.id,
-    name: data.name,
-    description: data.description,
-    price: Number(data.price),
-    originalPrice: data.original_price ? Number(data.original_price) : undefined,
-    rating: Number(data.rating),
-    reviews: Number(data.reviews),
-    category: data.category as Product['category'],
-    image: data.image,
-    images: data.images || [],
-    isNew: data.is_new,
-    discountBadge: data.discount_badge || undefined,
-    colors: data.colors || undefined,
-    stock: Number(data.stock),
+    id: productData.id,
+    name: productData.name,
+    description: productData.description,
+    price: Number(productData.price),
+    originalPrice: productData.original_price ? Number(productData.original_price) : undefined,
+    rating: Number(productData.rating),
+    reviews: Number(productData.reviews),
+    category: productData.category as Product['category'],
+    image: productData.image,
+    images: productData.images || [],
+    isNew: productData.is_new,
+    discountBadge: productData.discount_badge || undefined,
+    colors: productData.colors || undefined,
+    stock: Number(productData.stock),
   };
 }
 
@@ -73,7 +74,7 @@ export async function getProductsByCategory(category: string): Promise<Product[]
     return [];
   }
 
-  return data.map((item) => ({
+  return (data || []).map((item: any) => ({
     id: item.id,
     name: item.name,
     description: item.description,
